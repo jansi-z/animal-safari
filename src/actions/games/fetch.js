@@ -22,8 +22,6 @@ export default () => {
       .then(() => {
         backend.find({
           query: {
-            draw: false,
-            winnerId: null,
             $sort: {
               createdAt: -1,
             },

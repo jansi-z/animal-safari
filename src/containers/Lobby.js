@@ -34,8 +34,11 @@ class Lobby extends PureComponent {
   }
 
   isPlayer(game) {
+    if (game.players instanceof Object) {
+      return game.players._id === this.props.currentUser._id
+    }
     return game.players
-      .map((p) => (p.userId))
+      .map((p) => (p._id))
       .includes(this.props.currentUser._id)
   }
 
@@ -48,7 +51,7 @@ class Lobby extends PureComponent {
         key={index}
         onClick={this.goToGame(game._id).bind(this)}
         rightIcon={<ActionIcon />}
-        primaryText={`${game.owner.name}'s Game`} />
+        primaryText={game.title} />
     )
   }
 
