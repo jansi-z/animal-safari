@@ -7,7 +7,7 @@ import subscribeToGames from '../actions/games/subscribe'
 class Game extends PureComponent {
   componentWillMount() {
     const { game, fetchGames, getCurrentGame, subscribeToGames, subscribed } = this.props
-    const { gameId } = this.props.params
+    const { gameId } = this.props.match.params
 
     if (!game) fetchGames()
     getCurrentGame(gameId)
