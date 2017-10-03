@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import getCurrentGame from '../actions/games/get'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGames from '../actions/games/subscribe'
+import InputBar from './InputBar.js'
 
 class Game extends PureComponent {
   componentWillMount() {
@@ -21,8 +22,8 @@ class Game extends PureComponent {
 
     return (
       <div className="Game">
-        <h1>Game!</h1>
-        <p>This is where your game goes...</p>
+        <h1>IMAGE</h1>
+        <InputBar />
       </div>
     )
   }
@@ -35,7 +36,6 @@ const mapStateToProps = ({ currentUser, currentGame, games, subscriptions }) => 
   return {
     currentPlayer,
     game,
-    hasTurn: currentPlayer && currentPlayer._id === currentUser._id,
     subscribed: subscriptions.includes('games'),
   }
 }

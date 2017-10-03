@@ -9,7 +9,7 @@ import IconButton from 'material-ui/IconButton'
 import GameIcon from 'material-ui/svg-icons/hardware/videogame-asset'
 import FlatButton from 'material-ui/FlatButton'
 
-const TITLE = 'HANGEMON'
+const TITLE = 'Safari Guessing Game'
 
 class Navigation extends PureComponent {
   static propTypes = {
