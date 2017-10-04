@@ -5,6 +5,8 @@ export const GUESS = 'GUESS'
 
 const api = new API()
 
+// { guesses: { player: guessData.player, guess: guessData.guess }}
+
 export default (gameId, guessData) => {
   return (dispatch) => {
 
@@ -13,9 +15,6 @@ export default (gameId, guessData) => {
     api.authenticate()
       .then(() => {
         backend.patch(gameId, { type: GUESS, payload: guessData })
-          .then((result) => {
-            console.log(result)
-          })
           .catch((error) => {
             dispatch({
               type: LOAD_ERROR,
