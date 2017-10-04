@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import StarIcon from 'material-ui/svg-icons/action/favorite'
 import joinGame from '../../actions/games/join'
 
 class CreateGameButton extends PureComponent {
@@ -12,7 +11,7 @@ class CreateGameButton extends PureComponent {
 
   joinThisGame(event){
     const gameId = this.props.currentGame
-    debugger
+
     this.props.joinGame(gameId)
   }
 
