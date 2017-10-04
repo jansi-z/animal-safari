@@ -17,7 +17,7 @@ export default (gameId) => {
     dispatch({ type: APP_LOADING })
 
     const backend = api.service('games')
-
+    debugger
     api.authenticate()
       .then(() => {
         backend.patch(gameId, { type: JOIN_GAME })

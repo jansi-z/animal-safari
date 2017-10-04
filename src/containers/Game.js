@@ -4,6 +4,7 @@ import getCurrentGame from '../actions/games/get'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGames from '../actions/games/subscribe'
 import InputBar from './InputBar.js'
+import JoinGameButton from '../components/games/JoinGameButton'
 
 class Game extends PureComponent {
   componentWillMount() {
@@ -24,6 +25,7 @@ class Game extends PureComponent {
       <div className="Game">
         <h1>IMAGE</h1>
         <InputBar />
+        <JoinGameButton />
       </div>
     )
   }
