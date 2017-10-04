@@ -11,6 +11,7 @@ import WatchGameIcon from 'material-ui/svg-icons/image/remove-red-eye';
 import JoinGameIcon from 'material-ui/svg-icons/social/person-add';
 import PlayGameIcon from 'material-ui/svg-icons/hardware/videogame-asset';
 import WaitingIcon from 'material-ui/svg-icons/image/timelapse';
+import joinGame from '../actions/games/join'
 import './Lobby.css'
 
 class Lobby extends PureComponent {
@@ -21,8 +22,8 @@ class Lobby extends PureComponent {
   }
 
   goToGame(gameId) {
+    this.props.joinGame(gameId)
     const { push } = this.props
-
     return () => {
       push(`/games/${gameId}`)
     }
@@ -78,4 +79,4 @@ const mapStateToProps = ({ games, currentUser, subscriptions }) => (
   }
 )
 
-export default connect(mapStateToProps, { fetchGames, subscribeToGames, push })(Lobby)
+export default connect(mapStateToProps, { fetchGames, subscribeToGames, push, joinGame })(Lobby)
