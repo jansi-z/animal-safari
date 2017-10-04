@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 class InputBar extends PureComponent {
   submitGuess(event) {
     event.preventDefault();
-    // debugger;
     const guess = this.refs.guess.getValue();
     const gameId = this.props.currentGame;
     const player = this.props.currentUser._id;

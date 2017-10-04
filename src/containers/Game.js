@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import getCurrentGame from '../actions/games/get'
 import fetchGames from '../actions/games/fetch'
 import subscribeToGames from '../actions/games/subscribe'
+import JoinGameButton from '../components/games/JoinGameButton'
 import InputBar from './InputBar'
 import Image from './Image'
 
@@ -25,6 +26,7 @@ class Game extends PureComponent {
       <div className="Game">
         <Image />
         <InputBar />
+        <JoinGameButton />
       </div>
     )
   }
