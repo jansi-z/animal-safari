@@ -5,7 +5,7 @@ export default (state = null, { type, payload } = {}) => {
   switch (type) {
     case JOIN_GAME :
     case GET_GAME :
-      return payload._id
+      return payload
 
     default :
       return state

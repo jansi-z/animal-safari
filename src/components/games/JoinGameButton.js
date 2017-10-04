@@ -10,13 +10,14 @@ class CreateGameButton extends PureComponent {
   }
 
   joinThisGame(event){
-    const gameId = this.props.currentGame
+    const gameId = this.props.currentGame._id
 
     this.props.joinGame(gameId)
   }
 
   render() {
-    if (!this.props.signedIn) return null
+
+    if (this.props.currentGame.players.includes(this.props.currentUser._id)) return null
 
     return (
       <div className="CreateGameButton">
@@ -30,8 +31,6 @@ class CreateGameButton extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ currentUser, currentGame }) => ({
-  signedIn: !!currentUser && !!currentUser._id, currentGame
-})
+const mapStateToProps = ({ currentUser, currentGame }) => ({ currentUser, currentGame })
 
 export default connect(mapStateToProps, { joinGame })(CreateGameButton)

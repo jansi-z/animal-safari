@@ -11,14 +11,14 @@ class Game extends PureComponent {
   componentWillMount() {
     const { game, fetchGames, getCurrentGame, subscribeToGames, subscribed } = this.props
     const { gameId } = this.props.match.params
-
+    
     if (!game) fetchGames()
     getCurrentGame(gameId)
     if (!subscribed) subscribeToGames()
   }
 
   render() {
-    const { game } = this.props
+    const game = this.props.currentGame
 
     if (!game) return null
 
@@ -36,6 +36,7 @@ const mapStateToProps = ({ currentUser, currentGame, games, subscriptions }) => 
   const game = games.filter((g) => (g._id === currentGame))[0]
 
   return {
+    currentGame,
     game,
     subscribed: subscriptions.includes('games'),
   }
