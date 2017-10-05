@@ -6,12 +6,13 @@ import subscribeToGames from '../actions/games/subscribe'
 import JoinGameButton from '../components/games/JoinGameButton'
 import InputBar from './InputBar'
 import Image from './Image'
+import Timer from './Timer'
 
 class Game extends PureComponent {
   componentWillMount() {
     const { game, fetchGames, getCurrentGame, subscribeToGames, subscribed } = this.props
     const { gameId } = this.props.match.params
-    
+
     if (!game) fetchGames()
     getCurrentGame(gameId)
     if (!subscribed) subscribeToGames()
@@ -24,6 +25,7 @@ class Game extends PureComponent {
 
     return (
       <div className="Game">
+        <Timer />
         <Image />
         <InputBar />
         <JoinGameButton />
