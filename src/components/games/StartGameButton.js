@@ -2,29 +2,29 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import joinGame from '../../actions/games/join'
+import startGame from '../../actions/games/start'
 
-class JoinGameButton extends PureComponent {
+class StartGameButton extends PureComponent {
   static propTypes = {
     signedIn: PropTypes.bool,
   }
 
-  joinThisGame(event){
+  startThisGame(event){
     const gameId = this.props.currentGame._id
 
-    this.props.joinGame(gameId)
+    this.props.startGame(gameId)
   }
 
   render() {
 
-    if (this.props.currentGame.players.includes(this.props.currentUser._id)) return null
+    if (this.props.currentGame.players.includes(!this.props.currentUser._id)) return null
 
     return (
-      <div className="JoinGameButton">
+      <div className="StartGameButton">
         <RaisedButton
-          label="Ready!"
+          label="Ready?"
           primary={true}
-          onClick={this.joinThisGame.bind(this)}
+          onClick={this.startThisGame.bind(this)}
          />
       </div>
     )
@@ -33,4 +33,4 @@ class JoinGameButton extends PureComponent {
 
 const mapStateToProps = ({ currentUser, currentGame }) => ({ currentUser, currentGame })
 
-export default connect(mapStateToProps, { joinGame })(JoinGameButton)
+export default connect(mapStateToProps, { startGame })(StartGameButton)
