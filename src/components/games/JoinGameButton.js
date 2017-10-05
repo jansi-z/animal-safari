@@ -17,10 +17,10 @@ class CreateGameButton extends PureComponent {
 
   render() {
 
-    if (this.props.currentGame.players.includes(this.props.currentUser._id)) return null
+    if (this.props.currentGame.playerIds.includes(this.props.currentUser._id)) return null
 
     return (
-      <div className="CreateGameButton">
+      <div className="JoinGameButton">
         <RaisedButton
           label="Ready!"
           primary={true}
