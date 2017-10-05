@@ -13,7 +13,6 @@ class Timer extends PureComponent {
   }
 
   startTimer() {
-    debugger
     if (this.props.currentGame.started === true) {
       this.timer = setInterval(this.countDown.bind(this), 1000);
     }
