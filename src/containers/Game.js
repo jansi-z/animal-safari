@@ -6,7 +6,7 @@ import subscribeToGames from '../actions/games/subscribe'
 import JoinGameButton from '../components/games/JoinGameButton'
 import InputBar from './InputBar'
 import Image from './Image'
-import Timer from './Timer'
+import Playerlist from '../components/games/Playerlist'
 
 class Game extends PureComponent {
   componentWillMount() {
@@ -29,6 +29,7 @@ class Game extends PureComponent {
         <Image />
         <InputBar />
         <JoinGameButton />
+        <Playerlist />
       </div>
     )
   }
