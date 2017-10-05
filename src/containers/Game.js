@@ -25,6 +25,7 @@ class Game extends PureComponent {
 
     return (
       <div className="Game">
+        <Timer />
         <Image />
         <InputBar />
         <JoinGameButton />
