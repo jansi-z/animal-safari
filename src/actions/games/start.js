@@ -22,11 +22,11 @@ export default (gameId) => {
           .then((result) => {
             dispatch({ type: APP_DONE_LOADING })
             dispatch({ type: LOAD_SUCCESS })
-            //
-            // dispatch({
-            //   type: START_GAME,
-            //   payload: result
-            // })
+            
+            dispatch({
+              type: START_GAME,
+              payload: result
+            })
           })
           .catch((error) => {
             dispatch({ type: APP_DONE_LOADING })
