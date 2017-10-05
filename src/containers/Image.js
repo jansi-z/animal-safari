@@ -6,9 +6,7 @@ class Image extends PureComponent {
   render() {
     const imagePath = "http://res.cloudinary.com/meganc94/image/upload/v1507117505/"
 
-    const time = this.props.currentGame.time / 5 - 4;
-    const { animals } = this.props.game
-    const animal = animals[Math.floor(Math.random()*animals.length)]
+    const animal = this.props.currentGame.animal
 
     return (
       <div className="Image">

@@ -7,6 +7,7 @@ import JoinGameButton from '../components/games/JoinGameButton'
 import InputBar from './InputBar'
 import Image from './Image'
 import Playerlist from '../components/games/Playerlist'
+import Timer from './Timer'
 
 class Game extends PureComponent {
   componentWillMount() {
