@@ -8,6 +8,7 @@ import InputBar from './InputBar'
 import Image from './Image'
 import Playerlist from '../components/games/Playerlist'
 import Timer from './Timer'
+import ReadyButton from '../components/games/ReadyButton'
 
 class Game extends PureComponent {
   componentWillMount() {
@@ -21,8 +22,8 @@ class Game extends PureComponent {
 
   render() {
     const game = this.props.currentGame
-
-    if (!game) return null
+    const currentUser = this.props.currentUser
+    if (!game || !currentUser ) return null
 
     return (
       <div className="Game">
@@ -30,6 +31,7 @@ class Game extends PureComponent {
         <Image />
         <InputBar />
         <JoinGameButton />
+        <ReadyButton />
         <Playerlist />
       </div>
     )
@@ -40,6 +42,7 @@ const mapStateToProps = ({ currentUser, currentGame, games, subscriptions }) => 
   const game = games.filter((g) => (g._id === currentGame))[0]
 
   return {
+    currentUser,
     currentGame,
     game,
     subscribed: subscriptions.includes('games'),
