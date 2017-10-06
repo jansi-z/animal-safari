@@ -9,10 +9,9 @@ class Image extends PureComponent {
     this.timer = 0;
   }
 
-  componentWillReceiveProps(nextprops) {
-    if (nextprops.currentGame.started === true && this.props.currentGame.started === false) {
+  componentDidMount() {
+    if (this.props.currentGame.started === true)
       this.startTimer()
-    }
   }
 
   startTimer() {
@@ -22,7 +21,7 @@ class Image extends PureComponent {
   countDown() {
     let seconds = this.state.time - 1;
 
-    if (seconds < 1) {
+    if (seconds < 2) {
       clearInterval(this.timer);
     }
 
@@ -37,7 +36,7 @@ class Image extends PureComponent {
 
     return (
       <div className="Image">
-        <img src={`${imagePath}${animal}-${this.state.time}-m.jpg`} alt="hedgehog"/>
+        <img src={`${imagePath}${animal}-${this.state.time}-mm.jpg`} alt="hedgehog"/>
       </div>
     )
   }
