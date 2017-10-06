@@ -16,13 +16,12 @@ class Playerlist extends PureComponent {
       overflow: "hidden"
     }
 
-    const currentUserId = this.props.currentUser._id
     const currentUserName = this.props.currentUser.name
 
-    if (currentUserName == player.name) {
+    if (currentUserName === player.name) {
       return (
         <div>
-          <i class="material-icons" style={icon}>accessibility</i>
+          <i className="material-icons" style={icon}>accessibility</i>
           <ListItem
             primaryText={`Player ${index + 1}: ${player.name}`}
             key={player._id}
