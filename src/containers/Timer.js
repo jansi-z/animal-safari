@@ -12,10 +12,13 @@ class Timer extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger
     if (this.props.currentGame.started === false && nextProps.currentGame.started === true)
       this.startTimer()
     else if (this.props.currentGame.started === true && nextProps.currentGame.started === false)
       this.setState({ time: 25 })
+    else if (nextProps.currentGame.ended === true)
+      clearInterval(this.timer)
   }
 
   startTimer() {
