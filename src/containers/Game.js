@@ -25,15 +25,24 @@ class Game extends PureComponent {
     const game = this.props.currentGame
     const currentUser = this.props.currentUser
     if (!game || !currentUser ) return null
-
+    const started = this.props.currentGame.started
     return (
       <div className="Game">
         <Timer />
-        <Image />
         <EndGameScreen />
-        <InputBar />
-        <JoinGameButton />
-        <ReadyButton />
+         
+      { started ? (
+          <div className="game-started">
+            <Image />
+            <InputBar />
+          </div>
+        ) : (
+          <div className="not-started">
+            <JoinGameButton />
+            <ReadyButton />
+          </div>
+        )}
+
         <Playerlist />
       </div>
     )
