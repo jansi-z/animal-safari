@@ -1,31 +1,48 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
-// import MobileTearSheet from '../../../MobileTearSheet';
 import {List, ListItem} from 'material-ui/List';
-// import ContentInbox from 'material-ui/svg-icons/content/inbox';
-// import ActionGrade from 'material-ui/svg-icons/action/grade';
-// import ContentSend from 'material-ui/svg-icons/content/send';
-// import ContentDrafts from 'material-ui/svg-icons/content/drafts';
-// import Divider from 'material-ui/Divider';
-// import ActionInfo from 'material-ui/svg-icons/action/info';
 
 class Playerlist extends PureComponent {
 
   displayPlayerName(player, index) {
-    return <ListItem primaryText={`Player ${index + 1}: ${player.name}`} key={player._id} />
+    const style = {
+      color: "#4286f4"
+    };
+
+    const icon = {
+      position: "relative",
+      top: "39px",
+      left: "-90px",
+      overflow: "hidden"
+    }
+
+    const currentUserId = this.props.currentUser._id
+    const currentUserName = this.props.currentUser.name
+
+    if (currentUserName == player.name) {
+      return (
+        <div>
+          <i class="material-icons" style={icon}>accessibility</i>
+          <ListItem
+            primaryText={`Player ${index + 1}: ${player.name}`}
+            key={player._id}
+            style={ style }
+          />
+        </div> )
+    } else {
+      return <ListItem primaryText={`Player ${index + 1}: ${player.name}`} key={player._id} />
+    }
   }
 
   render() {
     const players = this.props.currentGame.players
     if (players.includes(null)) return null
     return(
-      // <MobileTearSheet>
       <div className="player-list">
         <List>
           { players.map(this.displayPlayerName.bind(this)) }
         </List>
       </div>
-      // </MobileTearSheet>
     )
   }
 }
