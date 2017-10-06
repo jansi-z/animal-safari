@@ -8,14 +8,13 @@ class Timer extends PureComponent {
     this.timer = 0;
   }
 
-  componentDidMount() {
-    this.startTimer()
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentGame.started === false && nextProps.currentGame.started === true)
+      this.startTimer()
   }
-
+  
   startTimer() {
-    if (this.props.currentGame.started === true) {
-      this.timer = setInterval(this.countDown.bind(this), 1000);
-    }
+      this.timer = setInterval(this.countDown.bind(this), 1000)
   }
 
   countDown() {
