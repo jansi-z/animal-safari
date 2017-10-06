@@ -60,7 +60,7 @@ class EndGameScreen extends PureComponent {
       <div>
         <RaisedButton label="Dialog" onClick={this.handleOpen} />
         <Dialog
-          title={"Game over! The time ran out..."}
+          title={`Game over! The time ran out...`}
           actions={actions}
           modal={false}
           open={true}
@@ -81,18 +81,6 @@ class EndGameScreen extends PureComponent {
           open={true}
           onRequestClose={this.handleClose}
         >
-
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Games won</th>
-              </tr>
-            </thead>
-            <tbody>
-              { this.props.currentGame.players.map(this.playerItem.bind(this)) }
-            </tbody>
-          </table>
         </Dialog>
       </div>
     )}
