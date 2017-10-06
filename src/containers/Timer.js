@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import CircularProgress from 'material-ui/CircularProgress';
+import './Timer.css'
 
 class Timer extends PureComponent {
   constructor() {
@@ -30,10 +32,25 @@ class Timer extends PureComponent {
 
   }
 
+
+
   render() {
+    const style = {
+      position: "relative",
+      top: "-71px",
+      left: "-1px"
+    };
     return (
       <div className="Timer">
-        <h1> Time: {this.state.time} </h1>
+        <h1> {this.state.time} </h1>
+        <CircularProgress
+          id="circular progress"
+          style={style}
+          max={25}
+          mode="determinate"
+          size={60}
+          value={this.state.time}
+        />
       </div>
     )
   }
