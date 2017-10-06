@@ -9,6 +9,7 @@ import Image from './Image'
 import Playerlist from '../components/games/Playerlist'
 import Timer from './Timer'
 import ReadyButton from '../components/games/ReadyButton'
+import EndGameScreen from '../components/games/EndGameScreen'
 
 class Game extends PureComponent {
   componentWillMount() {
@@ -29,6 +30,7 @@ class Game extends PureComponent {
       <div className="Game">
         <Timer />
         <Image />
+        <EndGameScreen />
         <InputBar />
         <JoinGameButton />
         <ReadyButton />
