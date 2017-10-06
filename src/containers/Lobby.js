@@ -58,7 +58,7 @@ class Lobby extends PureComponent {
   render() {
     return (
       <div className="Lobby">
-        <h1>Lobby!</h1>
+        <h1 id="logo">Welcome to the jungle!</h1>
         <CreateGameButton />
         <Paper className="paper">
           <Menu>
