@@ -4,6 +4,7 @@ import { START_GAME } from '../actions/games/start'
 import { GAME_UPDATED } from '../actions/games/subscribe'
 import { END_GAME } from '../actions/games/end'
 import { PLAY_AGAIN } from '../actions/games/playAgain'
+import { LEAVE_GAME } from '../actions/games/leave'
 
 export default (state = null, { type, payload } = {}) => {
   switch (type) {
@@ -23,6 +24,9 @@ export default (state = null, { type, payload } = {}) => {
       return payload
 
     case PLAY_AGAIN :
+      return payload
+
+    case LEAVE_GAME :
       return payload
 
     default :

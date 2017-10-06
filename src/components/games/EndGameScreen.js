@@ -5,6 +5,7 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import playAgain from '../../actions/games/playAgain'
+import leaveGame from '../../actions/games/leave'
 
 class EndGameScreen extends PureComponent {
   constructor() {
@@ -25,6 +26,7 @@ class EndGameScreen extends PureComponent {
   }
 
   handleNope = () => {
+    this.props.leaveGame(this.props.currentGame._id)
     this.props.push('/')
   }
 
@@ -65,11 +67,15 @@ class EndGameScreen extends PureComponent {
           onRequestClose={this.handleClose}
         >
           <table>
-            <tr>
-              <th>Name</th>
-              <th>Games won</th>
-            </tr>
-            { this.props.currentGame.players.map(this.playerItem.bind(this)) }
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Games won</th>
+              </tr>
+            </thead>
+            <tbody>
+              { this.props.currentGame.players.map(this.playerItem.bind(this)) }
+            </tbody>
           </table>
         </Dialog>
       </div>
@@ -79,4 +85,4 @@ class EndGameScreen extends PureComponent {
 
 const mapStateToProps = ({ currentGame }) => ({ currentGame })
 
-export default connect(mapStateToProps, { push, playAgain })(EndGameScreen)
+export default connect(mapStateToProps, { push, playAgain, leaveGame })(EndGameScreen)
