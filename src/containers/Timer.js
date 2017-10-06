@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import CircularProgress from 'material-ui/CircularProgress';
 import './Timer.css'
+import endGame from '../actions/games/end'
 
 class Timer extends PureComponent {
   constructor() {
@@ -14,16 +15,18 @@ class Timer extends PureComponent {
     if (this.props.currentGame.started === false && nextProps.currentGame.started === true)
       this.startTimer()
   }
-  
+
   startTimer() {
       this.timer = setInterval(this.countDown.bind(this), 1000)
   }
 
   countDown() {
+    const gameId = this.props.currentGame._id
     let seconds = this.state.time - 1;
 
     if (seconds < 1) {
       clearInterval(this.timer);
+      this.props.endGame(gameId)
     }
 
     this.setState({
@@ -66,4 +69,4 @@ const mapStateToProps = ({ games, currentGame }) => {
   }
 }
 
-export default connect(mapStateToProps)(Timer)
+export default connect(mapStateToProps, { endGame })(Timer)
