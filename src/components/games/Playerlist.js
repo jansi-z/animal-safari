@@ -11,8 +11,8 @@ import {List, ListItem} from 'material-ui/List';
 
 class Playerlist extends PureComponent {
 
-  displayPlayerName(player) {
-    return <ListItem primaryText={ player.name } key={player._id} />
+  displayPlayerName(player, index) {
+    return <ListItem primaryText={`Player ${index + 1}: ${player.name}`} key={player._id} />
   }
 
   render() {
@@ -20,10 +20,11 @@ class Playerlist extends PureComponent {
     if (players.includes(null)) return null
     return(
       // <MobileTearSheet>
+      <div className="player-list">
         <List>
           { players.map(this.displayPlayerName.bind(this)) }
         </List>
-
+      </div>
       // </MobileTearSheet>
     )
   }
