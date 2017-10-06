@@ -12,15 +12,13 @@ class InputBar extends PureComponent {
     const guessData = { player: player, guess: guess }
 
     this.props.addGuess(gameId, guessData);
-    console.log(guessData)
-    console.log(gameId)
-
+    document.getElementById("guessForm").reset()
   }
 
   render() {
 
     return (
-      <form onSubmit={this.submitGuess.bind(this)}>
+      <form id="guessForm" onSubmit={this.submitGuess.bind(this)}>
         <TextField
           hintText="Guess an Animal"
           floatingLabelText="Guess:"
