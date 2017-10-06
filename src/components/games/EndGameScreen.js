@@ -4,6 +4,8 @@ import { push } from 'react-router-redux'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
+import playAgain from '../../actions/games/playAgain'
+import leaveGame from '../../actions/games/leave'
 
 class EndGameScreen extends PureComponent {
   constructor() {
@@ -14,20 +16,24 @@ class EndGameScreen extends PureComponent {
   componentWillReceiveProps(nextProps) {
     if (this.props.currentGame.ended === false && nextProps.currentGame.ended === true)
       this.hidden = false
+    else if (this.props.currentGame.ended === true && nextProps.currentGame.ended === false)
+      this.hidden = true
   }
 
   playerItem(player) {
-  debugger
   return <tr><td>{ player.name }</td><td>{ player.gamesWon }</td></tr>
 
   }
 
   handleNope = () => {
+    this.props.leaveGame(this.props.currentGame._id)
     this.props.push('/')
   }
 
   handleYep = () => {
-    return
+    const gameId = this.props.currentGame._id
+
+    this.props.playAgain(gameId)
   }
 
   render() {
@@ -75,6 +81,18 @@ class EndGameScreen extends PureComponent {
           open={true}
           onRequestClose={this.handleClose}
         >
+
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Games won</th>
+              </tr>
+            </thead>
+            <tbody>
+              { this.props.currentGame.players.map(this.playerItem.bind(this)) }
+            </tbody>
+          </table>
         </Dialog>
       </div>
     )}
@@ -83,4 +101,4 @@ class EndGameScreen extends PureComponent {
 
 const mapStateToProps = ({ currentGame }) => ({ currentGame })
 
-export default connect(mapStateToProps, { push })(EndGameScreen)
+export default connect(mapStateToProps, { push, playAgain, leaveGame })(EndGameScreen)
