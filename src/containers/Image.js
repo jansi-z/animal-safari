@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import '../styles/image.css'
 
 class Image extends PureComponent {
   constructor() {
