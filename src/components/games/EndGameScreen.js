@@ -54,19 +54,27 @@ class EndGameScreen extends PureComponent {
       <div>
         <RaisedButton label="Dialog" onClick={this.handleOpen} />
         <Dialog
-          title={"Game over!"}
+          title={"Game over! The time ran out..."}
           actions={actions}
           modal={false}
           open={true}
           onRequestClose={this.handleClose}
         >
-          <table>
-            <tr>
-              <th>Name</th>
-              <th>Games won</th>
-            </tr>
-            { this.props.currentGame.players.map(this.playerItem.bind(this)) }
-          </table>
+        </Dialog>
+      </div>
+    )}
+    else if (winner){
+
+    return (
+      <div>
+        <RaisedButton label="Dialog" onClick={this.handleOpen} />
+        <Dialog
+          title={`${winner} won!`}
+          actions={actions}
+          modal={false}
+          open={true}
+          onRequestClose={this.handleClose}
+        >
         </Dialog>
       </div>
     )}

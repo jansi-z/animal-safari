@@ -8,7 +8,7 @@ class InputBar extends PureComponent {
     event.preventDefault();
     const guess = this.refs.guess.getValue();
     const gameId = this.props.currentGame;
-    const player = this.props.currentUser._id;
+    const player = this.props.currentUser.name;
     const guessData = { player: player, guess: guess }
 
     this.props.addGuess(gameId, guessData);

@@ -30,7 +30,7 @@ class Game extends PureComponent {
       <div className="Game">
         <Timer />
         <EndGameScreen />
-         
+
       { started ? (
           <div className="game-started">
             <Image />
