@@ -6,7 +6,7 @@ The main things we learned from this project was to work with real-time socket.i
 
 ## Running the application
 
-If you want to run the app, you'll also need to install and run the API. You can find it here: https://github.com/shakahari/animal-safari-api
+If you want to run the app, you'll also need to install and run the API. You can find it here: https://github.com/shakahari/safari-api
 
 To start playing animal safari:
 
